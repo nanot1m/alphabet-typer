@@ -155,9 +155,10 @@ function ScoreScreen({ score, onRestart }) {
           as="a"
           href={
             "https://twitter.com/intent/tweet?text=" +
-            "Я набрал весь алфавит на клавиатуре за " +
+            "Я набрал русский алфавит на клавиатуре за " +
             (score / 1000).toFixed(2) +
-            " сек."
+            " сек. " +
+            "Проверь себя тут: https://nanot1m.github.io/alphabet-typer/"
           }
           aria-label="tweet"
           rightIcon={<FaTwitter />}
