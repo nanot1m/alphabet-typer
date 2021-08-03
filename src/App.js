@@ -1,5 +1,13 @@
 import { useEffect, useState, memo } from "react";
-import { Input, Container, Button, Text, Box, Stack } from "@chakra-ui/react";
+import {
+  Input,
+  Container,
+  Button,
+  Text,
+  Box,
+  Stack,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { FaTwitter, FaGithub } from "react-icons/fa";
 import { alphabetRu } from "./alphabets";
 
@@ -203,6 +211,8 @@ function ScreenWrapper({ children }) {
 }
 
 const Alphabet = memo(({ alphabet, inputValue }) => {
+  const matchedColor = useColorModeValue("gray.800", "white");
+
   return (
     <Box display="flex" flexWrap="wrap" justifyContent="center">
       {alphabet.map((letter, i) => (
@@ -213,7 +223,7 @@ const Alphabet = memo(({ alphabet, inputValue }) => {
             inputValue[i] === undefined
               ? "gray.400"
               : inputValue[i]?.toLowerCase() === letter
-              ? "gray.800"
+              ? matchedColor
               : "red"
           }
         >
