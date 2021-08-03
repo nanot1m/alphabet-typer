@@ -137,6 +137,8 @@ function GameScreen({ onRestart, onFinish }) {
         onChange={(e) => setInputValue(e.target.value)}
         mb={8}
         autoFocus
+        onPaste={(e) => e.preventDefault()}
+        onContextMenu={(e) => e.preventDefault()}
       />
       <Button onClick={onRestart}>Попробовать снова</Button>
     </ScreenWrapper>
