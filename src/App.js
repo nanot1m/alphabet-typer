@@ -1,6 +1,6 @@
 import { useEffect, useState, memo } from "react";
 import { Input, Container, Button, Text, Box, Stack } from "@chakra-ui/react";
-import { FaTwitter } from "react-icons/fa";
+import { FaTwitter, FaGithub } from "react-icons/fa";
 import { alphabetRu } from "./alphabets";
 
 const States = {
@@ -176,27 +176,39 @@ function ScoreScreen({ score, onRestart }) {
 
 function ScreenWrapper({ children }) {
   return (
-    <Container
-      h="full"
-      pb={16}
-      pt={8}
-      display="flex"
-      flexDirection="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-      {children}
-    </Container>
+    <Box display="flex" flexDirection="column" h="full" pb={10}>
+      <Container
+        h="full"
+        pb={16}
+        pt={8}
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+      >
+        {children}
+      </Container>
+      <Button
+        as="a"
+        rightIcon={<FaGithub />}
+        variant="link"
+        target="_blank"
+        href="https://github.com/nanot1m/alphabet-typer"
+        mt={4}
+      >
+        @nanot1m
+      </Button>
+    </Box>
   );
 }
 
 const Alphabet = memo(({ alphabet, inputValue }) => {
   return (
-    <Box display="flex">
+    <Box display="flex" flexWrap="wrap" justifyContent="center">
       {alphabet.map((letter, i) => (
         <Text
           key={letter}
-          fontSize={["l", "xl", "x-large"]}
+          fontSize={["s", "xl", "x-large"]}
           color={
             inputValue[i] === undefined
               ? "gray.400"
